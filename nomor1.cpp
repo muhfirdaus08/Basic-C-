@@ -1,55 +1,28 @@
 #include <iostream>
+#include<iomanip>
 using namespace std;
 
-int main(int argc, char const *argv[])
-{
-    // ada 10 anak yang bernama hinata, kageyama, tanaka, kenma, oikawa, nishinoya, yaku, bokuto, sawamura, aone
+int main(){
+    int input, a = 5;
+    cout<<"Input : "; cin>>input;
+    for (int i = 0; i < input; i++){
+        for (int j = 0; j < input; j++){
+            // a = i-j;
+            // //atau a = j-i;
+            // if (a>0){
+            //     cout<< setw(3) << a;
+            // }
+            // else{
+            //     a = a*(-1);
+            //     cout<< setw(3) << a;
+            // }
 
-    int hinata, kageyama, tanaka, kenma, oikawa, nishinoya, yaku, bokuto, sawamura, aone;
-
-    // jumlah bola yang dibeli masing-masing anak
-    // kecuali aone
-
-    oikawa = 6; hinata = 2; nishinoya = 7; yaku = 8;
-    kageyama = 3; kenma = 5; bokuto = 9; sawamura = 10; tanaka = 4; 
-
-    cout << "=== Kantong Bola Sebelum Tertukar ===" << endl;
-    cout << "Hinata : " << hinata << endl;
-    cout << "Kageyama : " << kageyama << endl;
-    cout << "Tanaka : " << tanaka << endl;
-    cout << "Kenma : " << kenma << endl;
-    cout << "Oikawa : " << oikawa << endl;
-    cout << "Nishinoya : " << nishinoya << endl;
-    cout << "Yaku : " << yaku << endl;
-    cout << "Bokuto : " << bokuto << endl;
-    cout << "Sawamura : " << sawamura << endl;
-
-    // karena buru-buru mereka membawa kantong belanja yang ada didekatnya
-
-    // aone sebagai variabel bantu untuk penukaran
-
-    aone = oikawa;
-    oikawa = hinata;
-    hinata = kenma;
-    kenma = yaku;
-    yaku = kageyama;
-    kageyama = tanaka;
-    tanaka = nishinoya;
-    nishinoya = bokuto;
-    bokuto = sawamura;
-    sawamura = kageyama - 2;    
-    kageyama = aone;
-
-    cout << "=== Kantong Bola Setalah Tertukar ===" << endl;
-    cout << "Hinata : " << hinata << endl;
-    cout << "Kageyama : " << kageyama << endl;
-    cout << "Tanaka : " << tanaka << endl;
-    cout << "Kenma : " << kenma << endl;
-    cout << "Oikawa : " << oikawa << endl;
-    cout << "Nishinoya : " << nishinoya << endl;
-    cout << "Yaku : " << yaku << endl;
-    cout << "Bokuto : " << bokuto << endl;
-    cout << "Sawamura : " << sawamura << endl;
-
-    return 0;
+            if (i==0 && j>=0 && j<=input-1 || j==0 && i>=0 && i<=input-1 || i==input-1 && j>=0 && j<=input-1){
+                cout << a << " ";
+            }else {
+                cout << " ";
+            }
+        }
+        cout<<endl;
+    }
 }

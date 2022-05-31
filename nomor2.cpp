@@ -1,46 +1,66 @@
 #include <iostream>
 using namespace std;
 
-int main(int argc, char const *argv[])
-{
+int main() {
+    int a, b, n, jumlah = 0;
 
-    cout << "Masukkan waktu dalam detik (nyata) : ";
-    int input_detik_nyata;
-    cin >> input_detik_nyata;
+    cout << "Masukin nilai akhir (x) : ";
+    cin >> a;
+    cout << "Masukin selish (y) : ";
+    cin >> b;
+    cout << "Masukin banyak barisan(n) : ";
+    cin >> n;
 
-    // nyata
-    int jam = input_detik_nyata/3600;
-    int modulo = input_detik_nyata%3600;
-    int menit = modulo/60;
-    int detik = modulo%60;
+    // aritmatika
 
-    cout << jam <<" jam " << menit <<" menit " << detik << " detik" << endl;
- 
-    //lain
-    // 5 menit di dunia nyata = 1 menit di dunia lain
-    // 10 menit di dunia nyata = 2 menit di dunia lain
-    // artinya waktu di dunia nyata 5 kali lebih lambat daripada dunia lain
-    
-    int selisih_waktu = input_detik_nyata/5;
-    jam = selisih_waktu/3600;
-    modulo = selisih_waktu%3600;
-    menit = modulo/60;
-    detik = modulo%60;
+    cout << "\nSeluruh bilangan aritmatika : ";
+    for (int i=a+((n-1)*b); i>=a; i-=b){
+        cout << i << " ";
+        jumlah += i;
+    }
+    cout << endl << "Jumlah : " << jumlah << endl;
+    jumlah = 0; 
 
-    cout << jam <<" jam " << menit <<" menit " << detik << " detik" << endl;
+    //prima
 
-    // bawah
-    // 1 hari di dunia nyata = 3 jam di dunia bawah
-    // 24 jam di dunia nyata = 3 jam di dunia bawah
-    // artinya waktu di dunia nyata 8 kali lebih lambat daripada dunia lain
+    cout << "\nSeluruh bilangan prima : ";
+    for (int i=a+((n-1)*b); i>=a; i-=b){
+        int hitung = 0;
+        for (int j=1; j<=i; j++){
+            if (i%j == 0){
+                hitung++;
+            }
+        }
+        if (hitung == 2){
+            cout << i << " ";
+            jumlah += i;
+        }          
+    }
+    cout << endl << "Jumlah : " << jumlah << endl;
+    jumlah = 0; 
 
-    selisih_waktu = input_detik_nyata/8;
-    jam = selisih_waktu/3600;
-    modulo = selisih_waktu%3600;
-    menit = modulo/60;
-    detik = modulo%60;
+    //fibonanci
 
-    cout << jam <<" jam " << menit <<" menit " << detik << " detik" << endl;
-
+    cout << "\nSeluruh bilangan fibonanci : ";
+    for (int i=a+((n-1)*b); i>=a; i-=b){
+        int angka1 = 0; 
+        int angka2 = 1;
+        for (int j=i; j>0; j--){
+            int sum = angka1 + angka2;
+            angka1 = angka2;
+            angka2 = sum;
+            if (sum == i){
+                cout << sum << " ";
+                if (i==1){
+                    cout << a << " "; 
+                }
+                jumlah = jumlah += sum;
+            }
+        }
+    }
+    if (a == 1){
+        jumlah += a;
+    }
+    cout << endl << "Jumlah : " << jumlah << endl;
     return 0;
 }
